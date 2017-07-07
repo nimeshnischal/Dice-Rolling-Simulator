@@ -27,7 +27,7 @@ def get_min_max_values():
     if user_choice in user_choice_no_options:
         while True:
             print("Please enter the minimum and maximum values on the dice to simulate.")
-            min_value = int(input("Minimum value: "))       #TODO create a function to check if input is int or not
+            min_value = int(input("Minimum value: "))       #TODO create a function to check if input is int or not, or introduce error check
             max_value = int(input("Maximum value: "))
             if min_value >= max_value:          			#Checking for valid entries
                 print("Invalid entries, please try again!")
@@ -44,6 +44,7 @@ def get_random_number(min, max):        #Function to generate a random number be
 
 def show_exit_message():
     print("\n==================== Thank you for using this app. Developed by Nimesh Nischal. ====================")
+    input("Press enter to exit!")
 
 def show_rolled_dice_value_and_loop(min_value, max_value):
     user_choice = 'y'
@@ -61,10 +62,10 @@ def show_rolled_dice_value_and_loop(min_value, max_value):
           continue
 
 
-#=====================MAIN PROGRAM=====================#
+#===================== MAIN PROGRAM =====================#
 
 user_choice_options = ['y', 'n', 'Y', 'N','yes', 'no', 'Yes', 'No', 'YES', 'NO']    #Taking most of the possible user inputs in cosideration
-user_choice_no_options = ['n', 'N', 'no', 'No', 'NO']                               #Uptil now, no need to defice user_choice_yes_options
+user_choice_no_options = ['n', 'N', 'no', 'No', 'NO']                               #Until now, no need to define user_choice_yes_options list
 
 clear_screen()
 print_welcome_message()
@@ -82,5 +83,3 @@ clear_screen()
 print_welcome_message()
 
 show_rolled_dice_value_and_loop(min_value, max_value)
-
-#clear_screen()
