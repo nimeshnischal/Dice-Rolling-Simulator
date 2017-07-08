@@ -14,6 +14,7 @@ def get_user_choice():
     user_choice = None
     while user_choice not in user_choice_options:   #Run the loop unless a valid user's choice is received
         user_choice = input()
+        user_choice = user_choice.casefold()
         if user_choice not in user_choice_options:
             print("Wrong input, please try again! (y/n):")
             continue
@@ -64,8 +65,8 @@ def show_rolled_dice_value_and_loop(min_value, max_value):
 
 #===================== MAIN PROGRAM =====================#
 
-user_choice_options = ['y', 'n', 'Y', 'N','yes', 'no', 'Yes', 'No', 'YES', 'NO']    #Taking most of the possible user inputs in cosideration
-user_choice_no_options = ['n', 'N', 'no', 'No', 'NO']                               #Until now, no need to define user_choice_yes_options list
+user_choice_options = ['y', 'n', 'yes', 'no']    #Taking most of the possible user inputs in cosideration
+user_choice_no_options = ['n','no']                               #Until now, no need to define user_choice_yes_options list
 
 clear_screen()
 print_welcome_message()
