@@ -8,7 +8,8 @@ def clear_screen():                     #Function to clear the console screen
     clear()
 
 def print_welcome_message():
-    print("\n********** Welcome to Dice Rolling Simulator **********\n")
+    welcome_message = " Welcome to Dice Rolling Simulator ".center(100, "*")
+    print("\n", welcome_message, "\n")
 
 def get_user_choice():
     user_choice = None
@@ -44,7 +45,8 @@ def get_random_number(min, max):        #Function to generate a random number be
     return random.randint(min,max)
 
 def show_exit_message():
-    print("\n==================== Thank you for using this app. Developed by Nimesh Nischal. ====================")
+    exit_message = " Thank you for using this app. Developed by Nimesh Nischal. ".center(100,"=")
+    print("\n", exit_message, "\n")
     input("Press enter to exit!")
 
 def show_rolled_dice_value_and_loop(min_value, max_value):
