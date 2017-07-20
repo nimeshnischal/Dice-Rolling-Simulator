@@ -29,8 +29,7 @@ def get_min_max_values():
     if user_choice in user_choice_no_options:
         while True:
             print("Please enter the minimum and maximum values on the dice to simulate.")
-            min_value = int(input("Minimum value: "))       #TODO create a function to check if input is int or not, or introduce error check
-            max_value = int(input("Maximum value: "))
+            min_value, max_value = get_int_min_max_input()
             if min_value >= max_value:          			#Checking for valid entries
                 print("Invalid entries, please try again!")
                 continue
@@ -40,6 +39,16 @@ def get_min_max_values():
         min_value = 1
         max_value = 6
     return [min_value, max_value]
+
+def get_int_min_max_input():
+    try:
+        min_value = int(input())
+        max_value = int(input())
+    except ValueError:
+        print("Error! Please enter integer values.")
+        return get_int_min_max_input()
+    else:
+        return min_value, max_value
 
 def get_random_number(min, max):        #Function to generate a random number between two numbers, including those two numbers
     return random.randint(min,max)
@@ -53,7 +62,7 @@ def show_rolled_dice_value_and_loop(min_value, max_value):
     user_choice = 'y'
     while user_choice not in user_choice_no_options:
         print("And the dice rolls....................")
-        print("\nThe number is: ", get_random_number(min_value, max_value))     #TODO Draw ascii art for numbers (or use number images)
+        print("\nThe number is: ", get_random_number(min_value, max_value))     #TODO Draw ascii art for numbers (or use number images in GUI)
         print("\nRoll again? (y/n)")
         user_choice = get_user_choice()
         if user_choice in user_choice_no_options:
@@ -68,7 +77,7 @@ def show_rolled_dice_value_and_loop(min_value, max_value):
 #===================== MAIN PROGRAM =====================#
 
 user_choice_options = ['y', 'n', 'yes', 'no']    #Taking most of the possible user inputs in cosideration
-user_choice_no_options = ['n','no']                               #Until now, no need to define user_choice_yes_options list
+user_choice_no_options = ['n','no']              #Until now, no need to define user_choice_yes_options list
 
 clear_screen()
 print_welcome_message()
